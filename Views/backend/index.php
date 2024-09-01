@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Dashboard | GreenLand</title>
+        <title>Dashboard | RH</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
@@ -199,7 +199,7 @@
                                         <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name"> Aymen </span>
+                                        <span class="account-user-name"> tarek </span>
                                         <span class="account-position"> Admin</span>
                                     </span>
                                 </a>
@@ -741,7 +741,7 @@
                                                     <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
                                                     <div class="timeline-item-info">
                                                         <a href="#" class="text-info fw-bold mb-1 d-block">You sold an item</a>
-                                                        <small>Paul Burgess just purchased “food by GreenLand”!</small>
+                                                        <small>Paul Burgess just purchased “food by RH”!</small>
                                                         <p class="mb-0 pb-2">
                                                             <small class="text-muted">5 minutes ago</small>
                                                         </p>
@@ -791,7 +791,7 @@
                                                     <i class="mdi mdi-upload bg-info-lighten text-info timeline-icon"></i>
                                                     <div class="timeline-item-info">
                                                         <a href="#" class="text-info fw-bold mb-1 d-block">You sold an item</a>
-                                                        <small>Paul Burgess just purchased “GreenLand niche”!</small>
+                                                        <small>Paul Burgess just purchased “RH niche”!</small>
                                                         <p class="mb-0 pb-2">
                                                             <small class="text-muted">16 hours ago</small>
                                                         </p>
@@ -847,7 +847,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © GreenLand - wizzards
+                                <script>document.write(new Date().getFullYear())</script> © RH - wizzards
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">

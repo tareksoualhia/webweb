@@ -202,7 +202,7 @@ $departments = get_department_stats();
                                         <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name"> Aymen </span>
+                                        <span class="account-user-name"> tarek </span>
                                         <span class="account-position"> Admin </span>
                                     </span>
                                 </a>
@@ -324,7 +324,7 @@ $departments = get_department_stats();
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">GeenLand</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">formation</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">stat</a></li>
                                             <li class="breadcrumb-item active">detail</li>
                                         </ol>
                                     </div>

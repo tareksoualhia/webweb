@@ -200,7 +200,7 @@ $produit = get_single_product();
                                         <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name"> Aymen </span>
+                                        <span class="account-user-name"> tarek </span>
                                         <span class="account-position"> Admin </span>
                                     </span>
                                 </a>

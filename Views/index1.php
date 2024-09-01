@@ -3,60 +3,70 @@ session_start();
 require_once 'C:/xampp/htdocs/ta/Controller/configg.php';
 
 // Check if the user is logged in
-if (!isset($_SESSION['loggedin']) || !isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['loggedin']) || !isset($_SESSION['manager_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Get the logged-in user's ID from the session
-$user_id = $_SESSION['user_id'];
+// Get the logged-in manager's ID from the session
+$manager_id = $_SESSION['manager_id'];
 
-// Fetch the logged-in user's details
+// Fetch the logged-in manager's details
 $con = Config::getConnexion();
-$sql = "SELECT employe.name, employe.email, employe.image, department.name AS department_name
-        FROM employe
-        JOIN department ON employe.department_id = department.id
-        WHERE employe.id = :id";
+$sql = "SELECT manager.name, manager.email, manager.image, department.name AS department_name
+        FROM manager
+        JOIN department ON manager.department_id = department.id
+        WHERE manager.id = :id";
 $query = $con->prepare($sql);
-$query->bindParam(':id', $user_id, PDO::PARAM_INT);
+$query->bindParam(':id', $manager_id, PDO::PARAM_INT);
 $query->execute();
 
-$employe = $query->fetch(PDO::FETCH_ASSOC);
+$manager = $query->fetch(PDO::FETCH_ASSOC);
 
-// Fetch the evaluations for the logged-in employee
-$sql = "SELECT date, rating, comments FROM evaluations WHERE employe_id = :id";
-$query = $con->prepare($sql);
-$query->bindParam(':id', $user_id, PDO::PARAM_INT);
-$query->execute();
-
-$evaluations = $query->fetchAll(PDO::FETCH_ASSOC);
-
-// Check if user details are found
-if (!$employe) {
-    die("User not found.");
+// Check if manager details are found
+if (!$manager) {
+    die("Manager not found.");
 }
 
-// Display the user details here
+// Display the manager details here
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
+
+
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
     <title>RH</title>
     <link rel="icon" type="image/x-icon" href="assets/images/logo.png" />
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
-</head>
+<!--
+
+TemplateMo 569 Edu Meeting
+
+https://templatemo.com/tm-569-edu-meeting
+
+-->
+  </head>
+
 <body>
 
   <!-- ***** Header Area Start ***** -->
@@ -66,7 +76,9 @@ if (!$employe) {
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">RH</a>
+                      <a href="index.html" class="logo">
+                          RH
+                      </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
@@ -75,7 +87,9 @@ if (!$employe) {
                           <li class="scroll-to-section"><a href="#courses">shop </a></li>
                           <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
                       </ul>
-                      <a class='menu-trigger'><span>Menu</span></a>
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
                       <!-- ***** Menu End ***** -->
                   </nav>
               </div>
@@ -85,22 +99,24 @@ if (!$employe) {
   <!-- ***** Header Area End ***** -->
 
   <!-- ***** Main Banner Area Start ***** -->
+   
   <section class="section main-banner" id="top" data-section="section1">
       <video autoplay muted loop id="bg-video">
           <source src="assets/images/envi.mp4" type="video/mp4" />
       </video>
+
       <div class="video-overlay header-text">
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
-                  <h6>RH</h6>
-                  <h2>Welcome to RH</h2>
-                  <p>l'idée de notre projet est de créer un site web ...</p>
-                  <div class="main-button-red">
-                      <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
-                  </div>
+              <h6>RH</h6>
+              <h2>Welcome to RH</h2>
+              
+              <div class="main-button-red">
+                  <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
               </div>
+          </div>
               </div>
             </div>
           </div>
@@ -108,76 +124,140 @@ if (!$employe) {
   </section>
   <!-- ***** Main Banner Area End ***** -->
 
-  <!-- ***** Profile Section Start ***** -->
-  <section class="profile-section" id="profile">
+ 
+    <section class="employee-section" id="employee-list">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-heading">
-                    <h2>Profile Details</h2>
+                    <h2>Employee List</h2>
                 </div>
             </div>
             <div class="col-lg-12">
-                <div class="profile-content">
-                    <h1 class="mt-5">Welcome, <?= htmlspecialchars($employe['name']) ?>!</h1>
-                    <p>Email: <?= htmlspecialchars($employe['email']) ?></p>
-                    <p>Department: <?= htmlspecialchars($employe['department_name']) ?></p>
-                    <?php if ($employe['image']): ?>
-                        <img src="<?= htmlspecialchars($employe['image']) ?>" alt="Profile Image" class="img-fluid" style="max-width: 200px;">
-                    <?php endif; ?>
-                    <div class="mt-3">
-                        <a href="update.php" class="btn btn-primary">Update Profile</a>
-                        <a href="logout.php" class="btn btn-danger">Logout</a>
+                <div class="employee-content">
+                    
+                    <!-- Button to Open Add Evaluation Page -->
+                    <div class="mb-4">
+                        <a href="addevaluation.php" class="btn btn-success">Add Employee Evaluation</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                    <!-- Logout Button -->
+               <div class="container">
+               <a href="logoutman.php" class="btn btn-danger">Logout</a>
+                  </div>
 
-  <!-- ***** Evaluations Section Start ***** -->
-  <section class="evaluations-section" id="evaluations">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-heading">
-                    <h2>Evaluations</h2>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="evaluations-content">
-                    <?php if ($evaluations): ?>
-                        <table class="table table-striped">
+                    <!-- Search and Sort Form -->
+                    <form method="GET" action="#employee-list" class="mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" name="search_name" class="form-control" placeholder="Search by Name" value="<?= htmlspecialchars($_GET['search_name'] ?? '') ?>">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" name="search_email" class="form-control" placeholder="Search by Email" value="<?= htmlspecialchars($_GET['search_email'] ?? '') ?>">
+                            </div>
+                            <div class="col-md-4">
+                                <select name="search_department" class="form-control">
+                                    <option value="">All Departments</option>
+                                    <?php
+                                    // Fetch the list of departments
+                                    $departmentQuery = $con->query("SELECT id, name FROM department");
+                                    $departments = $departmentQuery->fetchAll(PDO::FETCH_ASSOC);
+                                    foreach ($departments as $department):
+                                    ?>
+                                        <option value="<?= htmlspecialchars($department['name']) ?>" <?= (($_GET['search_department'] ?? '') === $department['name']) ? 'selected' : '' ?>><?= htmlspecialchars($department['name']) ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <select name="sort_by" class="form-control">
+                                    <option value="name" <?= ($_GET['sort_by'] ?? '') === 'name' ? 'selected' : '' ?>>Sort by Name</option>
+                                    <option value="email" <?= ($_GET['sort_by'] ?? '') === 'email' ? 'selected' : '' ?>>Sort by Email</option>
+                                    <option value="department_name" <?= ($_GET['sort_by'] ?? '') === 'department_name' ? 'selected' : '' ?>>Sort by Department</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="order" class="form-control">
+                                    <option value="ASC" <?= ($_GET['order'] ?? '') === 'ASC' ? 'selected' : '' ?>>Ascending</option>
+                                    <option value="DESC" <?= ($_GET['order'] ?? '') === 'DESC' ? 'selected' : '' ?>>Descending</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary w-100">Search & Sort</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <?php
+                    // Prepare the SQL query with search and sort options
+                    $sql = "SELECT employe.name, employe.email, department.name AS department_name
+                            FROM employe
+                            JOIN department ON employe.department_id = department.id
+                            WHERE 1=1";
+
+                    // Add search filters
+                    if (!empty($_GET['search_name'])) {
+                        $sql .= " AND employe.name LIKE :search_name";
+                    }
+                    if (!empty($_GET['search_email'])) {
+                        $sql .= " AND employe.email LIKE :search_email";
+                    }
+                    if (!empty($_GET['search_department'])) {
+                        $sql .= " AND department.name = :search_department";
+                    }
+
+                    // Add sorting
+                    if (!empty($_GET['sort_by'])) {
+                        $order = $_GET['order'] ?? 'ASC';
+                        $sql .= " ORDER BY " . $_GET['sort_by'] . " " . $order;
+                    }
+
+                    $query = $con->prepare($sql);
+
+                    // Bind parameters for search filters
+                    if (!empty($_GET['search_name'])) {
+                        $query->bindValue(':search_name', '%' . $_GET['search_name'] . '%', PDO::PARAM_STR);
+                    }
+                    if (!empty($_GET['search_email'])) {
+                        $query->bindValue(':search_email', '%' . $_GET['search_email'] . '%', PDO::PARAM_STR);
+                    }
+                    if (!empty($_GET['search_department'])) {
+                        $query->bindValue(':search_department', $_GET['search_department'], PDO::PARAM_STR);
+                    }
+
+                    $query->execute();
+                    $employees = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                    if ($employees):
+                    ?>
+                        <table class="table table-striped mt-5">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Rating</th>
-                                    <th>Comments</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($evaluations as $evaluation): ?>
+                                <?php foreach ($employees as $employee): ?>
                                     <tr>
-                                        <td><?= htmlspecialchars($evaluation['date']) ?></td>
-                                        <td><?= htmlspecialchars($evaluation['rating']) ?></td>
-                                        <td><?= htmlspecialchars($evaluation['comments']) ?></td>
+                                        <td><?= htmlspecialchars($employee['name']) ?></td>
+                                        <td><?= htmlspecialchars($employee['email']) ?></td>
+                                        <td><?= htmlspecialchars($employee['department_name']) ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     <?php else: ?>
-                        <p>No evaluations found.</p>
+                        <p>No employees found.</p>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
-  <!-- ***** Evaluations Section End ***** -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
 
 
 

@@ -200,7 +200,7 @@ $formation = get_single_formation();
                                         <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name"> Aymen </span>
+                                        <span class="account-user-name"> tarek </span>
                                         <span class="account-position"> Admin </span>
                                     </span>
                                 </a>
@@ -326,7 +326,7 @@ $formation = get_single_formation();
                                             <li class="breadcrumb-item active">detail</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Detail fromation</h4>
+                                    <h4 class="page-title">Detail </h4>
                                 </div>
                             </div>
                         </div>     

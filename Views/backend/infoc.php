@@ -8,7 +8,7 @@ $category = get_single_category();
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>detail formation | GeenLand</title>
+        <title>detail category | GeenLand</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
@@ -200,7 +200,7 @@ $category = get_single_category();
                                         <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name"> Aymen </span>
+                                        <span class="account-user-name"> tarek </span>
                                         <span class="account-position"> Admin </span>
                                     </span>
                                 </a>
@@ -322,11 +322,11 @@ $category = get_single_category();
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">GeenLand</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">formation</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">category</a></li>
                                             <li class="breadcrumb-item active">detail</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Detail fromation</h4>
+                                    <h4 class="page-title">Detail </h4>
                                 </div>
                             </div>
                         </div>     

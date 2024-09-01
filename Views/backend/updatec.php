@@ -10,7 +10,7 @@ update();
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>detail formation | GeenLand</title>
+        <title>detail category | GeenLand</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
         <meta content="Coderthemes" name="author">
@@ -202,7 +202,7 @@ update();
                                         <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                     </span>
                                     <span>
-                                        <span class="account-user-name"> Aymen </span>
+                                        <span class="account-user-name"> tarek </span>
                                         <span class="account-position"> Admin </span>
                                     </span>
                                 </a>
@@ -324,7 +324,7 @@ update();
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">GeenLand</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">formation</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">category</a></li>
                                             <li class="breadcrumb-item active">detail</li>
                                         </ol>
                                     </div>
@@ -355,7 +355,7 @@ update();
                                                     </div>
                                                     
                                                     <button type="submit" class="btn badge-success-lighten">Mettre a jour</button>
-                                                    <a href="listecategory.php?delete=<?=$category['id']?>" class="btn badge-danger-lighten">Supprimer formation</a>
+                                                    <a href="listecategory.php?delete=<?=$category['id']?>" class="btn badge-danger-lighten">Supprimer category</a>
                                                 </form>
                                             </div> <!-- end col -->
                                         </div> <!-- end row-->

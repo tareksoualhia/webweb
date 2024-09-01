@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Ajouter formation | GreenLand </title>
+    <title>Ajouter manager | RH </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
     <meta content="Coderthemes" name="author">
@@ -205,7 +205,7 @@
                                     <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
                                 </span>
                                 <span>
-                                    <span class="account-user-name"> Aymen </span>
+                                    <span class="account-user-name"> tarek </span>
                                     <span class="account-position"> Admin </span>
                                 </span>
                             </a>
@@ -327,12 +327,12 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">GreenLand</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">formations</a></li>
-                                            <li class="breadcrumb-item active">Ajouter formation</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">RH</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">managers</a></li>
+                                            <li class="breadcrumb-item active">Ajouter manager</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Ajouter formation</h4>
+                                    <h4 class="page-title">Ajouter manager</h4>
                                 </div>
                             </div>
                         </div>     
@@ -399,7 +399,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © GreenLand - wizzards
+                                <script>document.write(new Date().getFullYear())</script> © RH - wizzards
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-end footer-links d-none d-md-block">
